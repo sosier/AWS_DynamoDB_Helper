@@ -200,7 +200,7 @@ table["other_user3"]
 
 &nbsp;
 
-**Adding More Complex Attributes**
+**Adding More Complex Attributes**  
 *NOTE: DynamoDB only supports string, number, boolean, and set type objects.*
 ```python
 table["other_user3"]["favorite_numbers"] = [2, 4, 8]
