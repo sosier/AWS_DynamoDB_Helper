@@ -17,7 +17,7 @@
 from aws_dynamodb_helper import DynamoDBTable
 ```
 
-
+**Connect to and Inspect a Table**
 ```python
 table = DynamoDBTable("Fake_Users_Table")
 
@@ -55,7 +55,7 @@ print("Items in Table:", table.list_items(num_items))
 
 
 
-
+**Inspect an Item / Entry in that Table**
 ```python
 print(type(table["other_user3"]))
 table["other_user3"]
@@ -143,7 +143,7 @@ table["other_user3"]["password"]
 
 
 
-
+**Edit an Attribute of that Item**
 ```python
 table["other_user3"]["password"] += "!"
 table["other_user3"]["password"]
@@ -156,7 +156,7 @@ table["other_user3"]["password"]
 
 
 
-
+**Delete an Attribute of that Item**
 ```python
 del table["other_user3"]["password"]
 table["other_user3"]["password"]
@@ -195,7 +195,7 @@ table["other_user3"]
 
 
 
-
+**Add an Attribute to that Item**
 ```python
 table["other_user3"]["password"] = "still_not_me"
 table["other_user3"]
@@ -208,7 +208,7 @@ table["other_user3"]
 
 
 
-
+**Delete an Item / Entry from the Table**
 ```python
 del table["other_user3"]
 "other_user3" in table
@@ -221,7 +221,7 @@ del table["other_user3"]
 
 
 
-
+**Add an Item / Entry to the Table**
 ```python
 table["other_user3"]["password"] = "still_not_me"
 ```
@@ -246,7 +246,7 @@ table["other_user3"]["password"] = "still_not_me"
     KeyError: 'other_user3'
 
 
-
+__*NOTE: The Item / Entry Must be Initialized First*__
 ```python
 table["other_user3"] = {}
 table["other_user3"]
@@ -259,7 +259,7 @@ table["other_user3"]
 
 
 
-
+*Then you can add attributes like normal*
 ```python
 table["other_user3"]["password"] = "still_not_me"
 table["other_user3"]["birthday"] = "???"
@@ -273,7 +273,8 @@ table["other_user3"]
 
 
 
-
+**Adding More Complex Attributes**
+*NOTE: DynamoDB only supports string, number, boolean, and set type objects.*
 ```python
 table["other_user3"]["favorite_numbers"] = [2, 4, 8]
 ```
@@ -322,7 +323,7 @@ print(5 in table["other_user3"]["favorite_numbers"])
     False
 
 
-
+**Different Types of Sets**
 ```python
 table["other_user3"]["favorite_numbers"] = set([2, 4.1, 8])
 table["other_user3"]["favorite_numbers"]
@@ -348,7 +349,7 @@ table["other_user3"]["favorite_numbers"]
 
 
 
-
+**Sets Can Only Contain a Single Data Type**
 ```python
 table["other_user3"]["favorite_numbers"] = set([2, "4", 8])
 table["other_user3"]["favorite_numbers"]
