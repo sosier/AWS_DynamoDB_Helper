@@ -87,7 +87,7 @@ class DynamoDBTableItem(object):
             # DynamoDB expects sets to be passed in as a tuple/list of strings
             value = tuple(str(item) for item in value)
         else:
-            raise Exception("Your object is of an upsupported type: "
+            raise Exception("Your object is of an unsupported type: "
                             + f"{type(value)}.\n\n"
                             + "DynamoDB only supports string, number, boolean, "
                             + "and set type objects.")
